@@ -1,0 +1,51 @@
+{
+  "name": "eslint-config-easyops",
+  "version": "1.0.0",
+  "description": "An eslint config preset complements recommended rules for smooth ES201x transition",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint .",
+    "lint-staged": "lint-staged",
+    "precommit": "lint-staged"
+  },
+  "eslintConfig": {
+    "extends": [
+      "eslint:recommended",
+      "prettier"
+    ],
+    "parserOptions": {
+      "sourceType": "module"
+    },
+    "env": {
+      "es6": true,
+      "node": true
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "git-exec-and-restage eslint --fix --",
+      "git-exec-and-restage prettier --write --"
+    ],
+    "*.md": [
+      "git-exec-and-restage prettier --write --"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/easyops-cn/eslint-config-easyops.git"
+  },
+  "author": "easyops-cn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/easyops-cn/eslint-config-easyops/issues"
+  },
+  "homepage": "https://github.com/easyops-cn/eslint-config-easyops#readme",
+  "devDependencies": {
+    "@easyops/git-exec-and-restage": "^1.0.4",
+    "eslint": "^4.16.0",
+    "eslint-config-prettier": "^2.9.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^6.0.1",
+    "prettier": "^1.10.2"
+  }
+}
